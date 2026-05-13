@@ -1,79 +1,138 @@
-# Prédiction de l’Attrition des Employés
+# Employee Attrition Prediction
 
-## Objectif
+## Présentation du projet
 
-Dans ce projet, on essaie de prédire si un employé va quitter son entreprise ou non.
+Ce projet de Machine Learning vise à prédire si un employé est susceptible de quitter l’entreprise (attrition) ou non, à partir de données issues des ressources humaines.
 
-Le but est d’aider les ressources humaines à comprendre les facteurs qui influencent les départs et à mieux anticiper les situations à risque.
-
-## Données utilisées
-
-Le dataset contient des informations sur les employés :
-
-- âge  
-- salaire  
-- poste  
-- heures supplémentaires  
-- satisfaction au travail  
-- ancienneté  
-
-La variable cible est l’attrition :
-- Yes : l’employé quitte l’entreprise  
-- No : l’employé reste  
+L’objectif est d’aider les équipes RH à anticiper les départs, comprendre les facteurs de turnover, améliorer la satisfaction des employés et renforcer les stratégies de rétention.
 
 
-## Démarche du projet
+## Dataset
+
+Le dataset utilisé provient de IBM HR Analytics :
+
+https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset
+
+Il contient des informations sur les employés telles que :
+- âge
+- salaire mensuel
+- ancienneté
+- satisfaction au travail
+- heures supplémentaires
+- environnement de travail
+- niveau de poste...
+
+### Variable cible : **Attrition**
+  - `Yes` : l’employé quitte l’entreprise
+  - `No` : l’employé reste
+
+
+
+## Pipeline du projet
 
 ### 1. Compréhension des données
-Chargement du dataset et étude des variables.
+- Analyse de la structure du dataset
+- Identification des types de variables
+- Statistiques descriptives
+- Vérification des valeurs manquantes et doublons
 
-### 2. Analyse exploratoire
-On analyse :
-- la répartition de la variable cible  
-- l’impact des heures supplémentaires  
-- la relation entre salaire et attrition  
-- les corrélations entre variables  
+### 2. Analyse exploratoire (EDA)
+- Distribution de la variable cible
+- Analyse des variables numériques et catégorielles
+- Relations entre variables
+- Visualisations :
+  - Countplots
+  - Boxplots
+  - Heatmap de corrélation
 
 ### 3. Préparation des données
-- suppression des colonnes inutiles  
-- encodage des variables catégorielles  
-- normalisation des données  
-- séparation train/test  
+- Suppression des colonnes inutiles
+- Encodage des variables catégorielles
+- Normalisation des données
+- Séparation Train / Test
 
 ### 4. Modélisation
-On teste plusieurs modèles :
-- Régression Logistique  
-- Random Forest  
-- Gradient Boosting  
+Modèles utilisés :
+- Régression logistique
+- Random Forest
+- Gradient Boosting
 
 ### 5. Évaluation
-On compare les modèles avec :
-- accuracy  
-- F1-score  
-- matrice de confusion  
-- ROC-AUC  
+Les modèles sont évalués avec :
+- Accuracy
+- F1-score
+- Classification report
+- Matrice de confusion
 
-### 6. Interprétation
-On analyse les facteurs les plus importants dans le départ des employés.
+
 
 ## Résultats
 
-Les modèles d’ensemble comme Random Forest et Gradient Boosting donnent les meilleurs résultats.
+Les facteurs les plus influents sur l’attrition sont :
+- heures supplémentaires
+- salaire mensuel
+- satisfaction au travail
+- ancienneté
+- équilibre vie professionnelle / vie personnelle
 
-Les facteurs principaux qui influencent l’attrition sont :
-- les heures supplémentaires  
-- le salaire  
-- la satisfaction au travail  
-- l’ancienneté  
+La régression logistique a donné les meilleures performances globales parmi les modèles testés.
 
-## Outils utilisés
-- Python  
-- Pandas  
-- NumPy  
-- Matplotlib  
-- Seaborn  
-- Scikit-learn  
-          
-## Conclusion
 
-Ce projet montre comment le machine learning peut aider à comprendre les départs des employés et à améliorer la prise de décision en entreprise.
+## Analyse métier
+
+Les employés présentant :
+- une forte charge de travail,
+- une faible rémunération,
+- une faible satisfaction,
+
+ont une probabilité plus élevée de quitter l’entreprise.
+
+Ces résultats peuvent aider les RH à :
+- améliorer les conditions de travail
+- réduire les heures supplémentaires,
+- augmenter la satisfaction des employés
+- renforcer la fidélisation
+
+
+
+## Bibliothèques utilisées
+
+- pandas
+- numpy
+- matplotlib
+- seaborn
+- scikit-learn
+
+---
+
+## Installation
+
+### 1. Cloner le projet
+
+```bash
+git clone https://github.com/az-oumaima/employee-attrition-prediction.git
+cd employee-attrition-prediction
+```
+
+### 2. Installer les dépendances
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Lancer le notebook
+
+```bash
+jupyter notebook
+```
+
+---
+
+## Structure du projet
+
+```bash
+├── WA_Fn-UseC_-HR-Employee-Attrition.csv
+├── notebook.ipynb
+├── README.md
+├── requirements.txt
+```
